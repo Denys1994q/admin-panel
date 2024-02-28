@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BtnsModule } from '../btns/btns.module';
 import { DashboardComponent } from './dashboard.component';
+import { CardModule } from '../card/card.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { DashboardComponent } from './dashboard.component';
   ],
   imports: [
     CommonModule,
-    BtnsModule
+    BtnsModule,
+    CardModule
   ],
   exports: [
     DashboardComponent

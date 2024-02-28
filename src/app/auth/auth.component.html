@@ -28,7 +28,10 @@
         color="primary" 
         type="submit" 
         [disabled]="!userForm.valid">
-        Login
+        <span class="spinner-wrapper">
+            <mat-spinner *ngIf="loading" diameter="24" color="accent" class="spinner"></mat-spinner>
+            <span>Login</span>
+        </span>
     </button>
     <h2 *ngIf="error" class="error">{{error}}</h2>
 </form>

@@ -1,2 +1,12 @@
-dashboard
-<app-logout-btn (logoutClick)="handleLogout()"></app-logout-btn>
+<div class="dashboard">
+    <header class="header">
+        <div class="logoutBtn">
+        <app-logout-btn (logoutClick)="handleLogout()"></app-logout-btn>
+        </div>
+    </header>
+    <ul class="dashboard__list">
+        <li *ngFor="let card of assessments">
+            <app-card [card]="card"></app-card>
+        </li>
+    </ul>
+</div>

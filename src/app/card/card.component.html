@@ -1,0 +1,11 @@
+<mat-card class="card">
+    <img mat-card-image [src]="card.image_url" alt="Photo of {{ card.name }}" />
+    <mat-card-content>
+        <h2 class="card__name">{{ card.name }}</h2>
+        <h3 class="card__id">id: {{ card.id }}</h3>
+        <h4 class="card__status">
+        status: {{ card.active ? "active" : "non-active" }}
+        </h4>
+        <p class="card__subtext">resolved users: {{ card.users_resolved }}</p>
+    </mat-card-content>
+</mat-card>

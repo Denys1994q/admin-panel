@@ -10,13 +10,18 @@ export class AuthComponent {
     email: string = ''; 
     password: string = '';
     error!: string
+    loading!: boolean
 
     constructor(private authService: AuthService) {}
 
     onSubmit() {
+        this.loading = true
         this.authService.login({email: this.email, password: this.password}).subscribe({
-            next: resp => console.log(resp),
-            error: resp => this.error = resp.error.error
+            next: resp => this.loading = false,
+            error: resp => {
+                this.loading = false
+                this.error = resp.error.error
+            } 
         })
     }
 
