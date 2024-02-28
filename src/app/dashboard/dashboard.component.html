@@ -5,7 +5,7 @@
         </div>
     </header>
     <ul class="dashboard__list">
-        <li *ngFor="let card of assessments">
+        <li (click)="openModal()" *ngFor="let card of assessments">
             <app-card [card]="card"></app-card>
         </li>
     </ul>
