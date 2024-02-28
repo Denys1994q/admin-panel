@@ -9,13 +9,14 @@ import { AuthService } from '../services/auth.service';
 export class AuthComponent {
     email: string = ''; 
     password: string = '';
+    error!: string
 
     constructor(private authService: AuthService) {}
 
     onSubmit() {
         this.authService.login({email: this.email, password: this.password}).subscribe({
             next: resp => console.log(resp),
-            error: err => console.log(err)
+            error: resp => this.error = resp.error.error
         })
     }
 
