@@ -4,6 +4,7 @@ import { BtnsModule } from '../btns/btns.module';
 import { DashboardComponent } from './dashboard.component';
 import { CardModule } from '../card/card.module';
 import { ModalsModule } from '../modals/modals.module';
+import { MenuModule } from '../menu/menu.module';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { ModalsModule } from '../modals/modals.module';
         CommonModule,
         BtnsModule,
         CardModule,
-        ModalsModule
+        ModalsModule,
+        MenuModule
     ],
     exports: [
         DashboardComponent

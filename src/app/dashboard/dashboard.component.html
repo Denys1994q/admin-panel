@@ -1,7 +1,10 @@
 <div class="dashboard">
     <header class="header">
+        <ng-container *ngIf="isAdmin$ | async">
+            <app-menu [menuItems]="[{icon: 'people', name: 'Admin section'}]"></app-menu>
+        </ng-container>
         <div class="logoutBtn">
-        <app-logout-btn (logoutClick)="handleLogout()"></app-logout-btn>
+            <app-logout-btn (logoutClick)="handleLogout()"></app-logout-btn>
         </div>
     </header>
     <h1>Assessment reports: </h1>
