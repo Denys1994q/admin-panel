@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AssessmentModalComponent } from './assessment-modal/assessment-modal.component';
 import { MatIconModule } from '@angular/material/icon';
+import { GraphsModule } from '../graphs/graphs.module';
 
 @NgModule({
     declarations: [
@@ -11,7 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
     imports: [
         CommonModule,
         MatDialogModule,
-        MatIconModule
+        MatIconModule,
+        GraphsModule
     ],
     exports: [
     ]

@@ -6,17 +6,17 @@ import { CardModule } from '../card/card.module';
 import { ModalsModule } from '../modals/modals.module';
 
 @NgModule({
-  declarations: [
-    DashboardComponent
-  ],
-  imports: [
-    CommonModule,
-    BtnsModule,
-    CardModule,
-    ModalsModule
-  ],
-  exports: [
-    DashboardComponent
-  ]
+    declarations: [
+        DashboardComponent
+    ],
+    imports: [
+        CommonModule,
+        BtnsModule,
+        CardModule,
+        ModalsModule
+    ],
+    exports: [
+        DashboardComponent
+    ]
 })
 export class DashboardModule { }

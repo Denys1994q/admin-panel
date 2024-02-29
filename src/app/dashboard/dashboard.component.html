@@ -4,8 +4,9 @@
         <app-logout-btn (logoutClick)="handleLogout()"></app-logout-btn>
         </div>
     </header>
+    <h1>Assessment reports: </h1>
     <ul class="dashboard__list">
-        <li (click)="openModal()" *ngFor="let card of assessments">
+        <li (click)="openModal(card.id)" *ngFor="let card of assessments">
             <app-card [card]="card"></app-card>
         </li>
     </ul>

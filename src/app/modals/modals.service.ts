@@ -11,7 +11,7 @@ export class ModalService {
 
     constructor(public dialog: MatDialog) {}
     
-    getData(data: any) {
+    setData(data: any) {
       this.data = data
     }
 
@@ -22,9 +22,9 @@ export class ModalService {
             case 'assessment': 
                 if (variant == 'assessment') {
                     modalVariant = AssessmentModalComponent
-                    // modalStyles = {
-                    //   panelClass: 'modal-products',
-                    // }
+                    modalStyles = {
+                        data: this.data
+                    }
                 } 
                 break
         }

@@ -16,4 +16,11 @@ export class AssessmentsApiService {
         return this.http.get(assessmentsUrl, { headers })
     }
 
+    getAssessmentGraph(id: number) {
+        const assessmentsUrl = `${this.backendUrl}/api/userassessments/graph?id=${id}`;
+        const token = localStorage.getItem('authToken') || ''
+        const headers = new HttpHeaders().set('X-Token', token);
+        return this.http.get(assessmentsUrl, { headers })
+    }
+
 }
