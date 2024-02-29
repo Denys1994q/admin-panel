@@ -29,8 +29,17 @@ export class DashboardComponent implements OnInit {
 
     openModal(id: number) {
         this.assessmentsApiService.getAssessmentGraph(id).subscribe({
-            next: resp => {
-                this.modalService.setData(resp)
+            next: (resp: any) => {
+                console.log(resp)
+                // 
+                // data: {agreeableness: 15.678, drive: 17.891, luck: 11.345, openness: 22.456}
+                const graphData = []
+                for (const [key, value] of Object.entries(resp.data)) {
+                    // Формуємо новий об'єкт для кожної пари ключ-значення і додаємо його до масиву
+                    graphData.push({ name: key, value: value });
+                }
+                // graphData.push()
+                this.modalService.setData(graphData)
                 this.modalService.openDialog('assessment')
             }
         })

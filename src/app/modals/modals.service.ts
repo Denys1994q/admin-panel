@@ -23,7 +23,7 @@ export class ModalService {
                 if (variant == 'assessment') {
                     modalVariant = AssessmentModalComponent
                     modalStyles = {
-                        data: this.data
+                        data: this.data,
                     }
                 } 
                 break

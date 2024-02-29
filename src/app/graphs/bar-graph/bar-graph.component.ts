@@ -10,11 +10,11 @@ export class BarGraphComponent {
     @Input() xAxisLabel!: string
     @Input() yAxisLabel!: string
     // single: {name: string, value: number}[] = [
-    //     { name: 'Data1', value: 10 },
-    //     { name: 'Data2', value: 20 },
-    //     { name: 'Data3', value: 30 },
+        // { name: 'Data1', value: 10 },
+        // { name: 'Data2', value: 20 },
+        // { name: 'Data3', value: 30 },
     // ]
-    view: [number, number] = [700, 400];
+    view: [number, number] = [650, 350];
     showXAxis = true;
     showYAxis = true;
     gradient = false;
