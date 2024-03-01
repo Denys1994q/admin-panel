@@ -5,6 +5,7 @@ import { AdminSectionComponent } from './admin-section.component';
 import { ErrorModule } from '../error/error.module';
 import { AuthGuard } from '../services/auth.guard';
 import { RouterModule } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const routes = [
     {path: '', component: AdminSectionComponent, canActivate: [AuthGuard]}
@@ -18,7 +19,8 @@ const routes = [
         RouterModule.forChild(routes),
         CommonModule,
         TableModule,
-        ErrorModule
+        ErrorModule,
+        MatProgressSpinnerModule
     ],
     exports: [
         AdminSectionComponent
