@@ -6,5 +6,5 @@ import { Component, Input } from "@angular/core";
     styleUrls: ['./menu.component.sass']
 })
 export class MenuComponent {
-    @Input() menuItems!: {icon: string, name: string}[]
+    @Input() menuItems!: {icon: string, name: string, link: string}[]
 }

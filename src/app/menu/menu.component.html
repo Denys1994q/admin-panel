@@ -4,7 +4,7 @@
 <mat-menu #menu="matMenu">
     <ul>
         <li *ngFor="let item of menuItems">
-            <button mat-menu-item>
+            <button mat-menu-item [routerLink]="[item.link]">
                 <mat-icon>{{item.icon}}</mat-icon>
                 <span>{{item.name}}</span>
             </button>

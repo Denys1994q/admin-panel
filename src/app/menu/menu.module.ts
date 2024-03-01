@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -11,7 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
     imports: [
         CommonModule,
         MatMenuModule,
-        MatIconModule
+        MatIconModule,
+        RouterModule
     ],
     exports: [
         MenuComponent
