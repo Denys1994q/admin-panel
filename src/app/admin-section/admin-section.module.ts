@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from '../table/table.module';
 import { AdminSectionComponent } from './admin-section.component';
+import { ErrorModule } from '../error/error.module';
 
 @NgModule({
     declarations: [
@@ -9,7 +10,8 @@ import { AdminSectionComponent } from './admin-section.component';
     ],
     imports: [
         CommonModule,
-        TableModule
+        TableModule,
+        ErrorModule
     ],
     exports: [
         AdminSectionComponent

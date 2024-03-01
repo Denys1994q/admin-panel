@@ -8,6 +8,9 @@
         </div>
     </header>
     <h1>Assessment reports: </h1>
+    <ng-container *ngIf="(getAssessmentsError$ | async) || (getAssessmentGraphError$ | async)">
+        <app-error></app-error>
+    </ng-container>
     <ul class="dashboard__list">
         <li (click)="openModal(card.id)" *ngFor="let card of assessments">
             <app-card [card]="card"></app-card>

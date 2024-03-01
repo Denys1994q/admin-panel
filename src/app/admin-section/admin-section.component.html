@@ -1,2 +1,7 @@
 <h1>Users:</h1>
-<app-table [data]="users"></app-table>
+<div *ngIf="getUsersError$ | async; else usersTemplate">
+    <app-error></app-error>
+</div>
+<ng-template #usersTemplate>
+    <app-table [data]="users"></app-table>
+</ng-template>

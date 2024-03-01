@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { AssessmentsApiService } from '../services/assessments-api.service';
 import { ModalService } from '../modals/modals.service';
-import { Observable, Subject, map, takeUntil } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, map, takeUntil } from 'rxjs';
 import { IAssessment } from '../services/models/assessment-model';
 
 @Component({
@@ -15,6 +15,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     isAdmin$: Observable<boolean> = this.authService.userData$.pipe(
         map(userData => userData?.role === 'Admin')
     )
+    getAssessmentsError$ = new BehaviorSubject<boolean>(false)
+    getAssessmentGraphError$ = new BehaviorSubject<boolean>(false)
     unsubscribe$ = new Subject<void>()
 
     constructor(
@@ -23,8 +25,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
         private assessmentsApiService: AssessmentsApiService) {}
 
     ngOnInit() {
-        this.assessmentsApiService.getAssessments().subscribe({
-            next: resp => this.assessments = resp
+        this.assessmentsApiService.getAssessments().pipe(takeUntil(this.unsubscribe$)).subscribe({
+            next: resp => this.assessments = resp,
+            error: resp => this.getAssessmentsError$.next(true)
         })
     }
 
@@ -41,7 +44,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
                 }
                 this.modalService.setData(graphData)
                 this.modalService.openDialog('assessment')
-            }
+            },
+            error: resp => this.getAssessmentGraphError$.next(true)
         })
     }
 

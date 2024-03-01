@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard.component';
 import { CardModule } from '../card/card.module';
 import { ModalsModule } from '../modals/modals.module';
 import { MenuModule } from '../menu/menu.module';
+import { ErrorModule } from '../error/error.module';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { MenuModule } from '../menu/menu.module';
         BtnsModule,
         CardModule,
         ModalsModule,
-        MenuModule
+        MenuModule,
+        ErrorModule
     ],
     exports: [
         DashboardComponent
