@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         map(userData => userData?.role === 'Admin')
     )
     getAssessmentsError$ = new BehaviorSubject<boolean>(false)
+    getAssessmentGraphLoading$ = new BehaviorSubject<boolean>(false)
     getAssessmentGraphError$ = new BehaviorSubject<boolean>(false)
     unsubscribe$ = new Subject<void>()
 
@@ -26,7 +27,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.assessmentsApiService.getAssessments().pipe(takeUntil(this.unsubscribe$)).subscribe({
-            next: resp => this.assessments = resp,
+            next: resp => {
+                this.getAssessmentsError$.next(false)
+                this.assessments = resp
+            } ,
             error: resp => this.getAssessmentsError$.next(true)
         })
     }
@@ -36,8 +40,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     openModal(id: number) {
+        this.getAssessmentGraphLoading$.next(true)
         this.assessmentsApiService.getAssessmentGraph(id).pipe(takeUntil(this.unsubscribe$)).subscribe({
             next: resp => {
+                this.getAssessmentGraphLoading$.next(false)
+                this.getAssessmentGraphError$.next(false)
                 const graphData = []
                 for (const [key, value] of Object.entries(resp.data)) {
                     graphData.push({ name: key, value: value });
@@ -45,7 +52,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
                 this.modalService.setData(graphData)
                 this.modalService.openDialog('assessment')
             },
-            error: resp => this.getAssessmentGraphError$.next(true)
+            error: resp => {
+                this.getAssessmentGraphLoading$.next(false)
+                this.getAssessmentGraphError$.next(true)
+            } 
         })
     }
 

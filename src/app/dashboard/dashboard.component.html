@@ -8,6 +8,9 @@
         </div>
     </header>
     <h1>Assessment reports: </h1>
+    <ng-container *ngIf="getAssessmentGraphLoading$ | async">
+        <mat-spinner diameter="34" color="warn" class="spinner"></mat-spinner>
+    </ng-container>
     <ng-container *ngIf="(getAssessmentsError$ | async) || (getAssessmentGraphError$ | async)">
         <app-error></app-error>
     </ng-container>

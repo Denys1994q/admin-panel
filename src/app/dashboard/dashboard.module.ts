@@ -6,6 +6,7 @@ import { CardModule } from '../card/card.module';
 import { ModalsModule } from '../modals/modals.module';
 import { MenuModule } from '../menu/menu.module';
 import { ErrorModule } from '../error/error.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { ErrorModule } from '../error/error.module';
         CardModule,
         ModalsModule,
         MenuModule,
-        ErrorModule
+        ErrorModule,
+        MatProgressSpinnerModule
     ],
     exports: [
         DashboardComponent
