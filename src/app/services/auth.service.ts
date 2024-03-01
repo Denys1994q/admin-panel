@@ -19,12 +19,10 @@ export class AuthService {
         const loginUrl = `${this.backendUrl}/api/login`;
         return this.http.post<any>(loginUrl, {email: email, password: password}).pipe(
             tap(response => {
-                if (response && typeof window !== 'undefined' && localStorage) {
-                    localStorage.setItem('authToken', response.token);
-                    this.userDataSubject.next(response);
-                    this.isAuthenticated$.next(true)
-                    this.router.navigate(['/']);
-                } 
+                localStorage.setItem('authToken', response.token);
+                this.userDataSubject.next(response);
+                this.isAuthenticated$.next(true)
+                this.router.navigate(['/']);
             }),
         );
     }
