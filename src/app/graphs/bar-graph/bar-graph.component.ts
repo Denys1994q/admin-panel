@@ -1,12 +1,17 @@
 import { Component, Input } from "@angular/core";
 
+export interface IGraphData {
+    name: string, 
+    value: number
+}
+
 @Component({
     selector: 'app-bar-graph',
     templateUrl: './bar-graph.component.html',
     styleUrls: ['./bar-graph.component.sass']
 })
 export class BarGraphComponent {
-    @Input() data!: {name: string, value: number}[]
+    @Input() data!: IGraphData[]
     @Input() xAxisLabel!: string
     @Input() yAxisLabel!: string
     view: [number, number] = [650, 350];

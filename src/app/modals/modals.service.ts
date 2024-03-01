@@ -6,13 +6,13 @@ import { AssessmentModalComponent } from './assessment-modal/assessment-modal.co
 @Injectable({ providedIn: 'root' })
 
 export class ModalService {
-    openedDialog:Subject<any> = new Subject<any>();
+    openedDialog = new Subject();
     data!: any
 
     constructor(public dialog: MatDialog) {}
     
     setData(data: any) {
-      this.data = data
+        this.data = data
     }
 
     openDialog(variant: string) {
@@ -31,11 +31,11 @@ export class ModalService {
         this.openedDialog.next(variant)
         const dialogRef = this.dialog.open(modalVariant, modalStyles);
         dialogRef.afterClosed().subscribe(result => {
-          this.openedDialog.next(false)
+            this.openedDialog.next(false)
         });
       }
 
-      closeDialog() {
+    closeDialog() {
         this.dialog.closeAll()
-      }
+    }
 }

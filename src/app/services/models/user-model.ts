@@ -5,3 +5,10 @@ export interface IUser {
     role: string;
     position: string;
 }
+
+export interface IAuthedUser {
+    first_name: string;
+    last_name: string;
+    role: string;
+    token: string;
+}

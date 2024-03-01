@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { IGraphData } from 'src/app/graphs/bar-graph/bar-graph.component';
 
 @Component({
     selector: 'app-assessment-modal',
@@ -8,6 +9,6 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class AssessmentModalComponent  {
 
-    constructor(@Inject(MAT_DIALOG_DATA) public data: any) {console.log(this.data)}
+    constructor(@Inject(MAT_DIALOG_DATA) public data: IGraphData[]) {}
 
 }

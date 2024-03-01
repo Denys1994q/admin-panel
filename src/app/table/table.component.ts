@@ -7,15 +7,12 @@ import { Component, Input, OnChanges } from "@angular/core";
 })
 export class TableComponent implements OnChanges {
     @Input() data!: any[];
-
     displayedColumns: string[] = [];
-    dataSource: any[] = [];
 
     ngOnChanges() {
         if (this.data && this.data.length > 0) {
             const firstItem = this.data[0];
             this.displayedColumns = Object.keys(firstItem);
-            this.dataSource = this.data;
         }
     }    
 }
